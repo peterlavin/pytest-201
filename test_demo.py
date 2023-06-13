@@ -41,8 +41,7 @@ class TestingWithFixtures():
         out, err = capsys.readouterr()
         assert 'hello\n' == out
         assert 'hello' in out
-    
-    
+        
     def test_monkeypatch(self, monkeypatch):
         
         def fake_add(a, b):
@@ -51,8 +50,7 @@ class TestingWithFixtures():
         """ Monkeypatch add in demo to use fake_add for this test """
         monkeypatch.setattr(demo, "add", fake_add)
         assert demo.add(2, 4) == 42
-        
-    
+            
     def test_tempdir(self, tmpdir):
         """ Create a file handle to a file in tmpdir """
         some_file = tmpdir.join('something.txt')
@@ -75,7 +73,5 @@ class TestingWithFixtures():
         assert out == 'hello\nmore\n'
         # OR...
         assert 'hello' in out
-        assert 'more' in out
-        
-        
+        assert 'more' in out             
         
